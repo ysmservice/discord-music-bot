@@ -1,1 +1,16 @@
-
+NMethod on_ready
+invoke  print "Logged_in"
+EMethod
+NMethod on_message
+set  eval "True" true
+set  eval "False" false
+set  eval "None" none
+set  eval "self.getvar('message').content" content
+set content startswith "y!" iscmd
+if iscmd == true
+set content replace "y!","" cmdt
+set cmdt split  cmdarr
+set cmdarr pop 0 cmd
+invoke ycmd runcmd_file cmd
+Eif
+EMethod
