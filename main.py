@@ -29,7 +29,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     cmd = CMD()
-    cmd.var["message"]=ClassData(messgae)
+    cmd.var["message"]=ClassData(message)
     cmd.var["bot"]=ClassData(client)
     await cmd.cmdrun_method_file("main.ycmd","on_message")
 client.run('token')
