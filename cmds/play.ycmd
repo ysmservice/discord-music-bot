@@ -1,6 +1,8 @@
 set  eval "True" true
 set  eval "False" false
 set  eval "None" none
+import youtube_dl
+set  eval "youtube_dl" youtube_dl
 set  eval "self.getvar('cmdarr')[0]" yturl
 set yturl find "youtu" fyt
 set  eval "int(-1)" nf
@@ -10,9 +12,7 @@ await invoke ycmd cmdrun_file cmdfile
 Eif
 if fyt != nf
 import discord.utils
-import youtube_dl
 import discord
-set  eval "youtube_dl" youtube_dl
 set  eval "discord.utils.get(self.getvar('bot').voice_clients,guild=self.getvar('message').guild)" vcc
 = tf false
 if vcc != none
