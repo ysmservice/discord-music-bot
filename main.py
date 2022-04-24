@@ -10,7 +10,6 @@ import json
 import datetime
 import random
 import time
-import viewbotgui
 from hashids import Hashids
 # load our local env so we dont have the token in public
 from dotenv import load_dotenv
