@@ -8,7 +8,7 @@ import discord.utils
 import youtube_dl
 import discord
 set  eval "youtube_dl" youtube_dl
-set  eval "discord.utils.get(self.getvar('bot').voice_clients,guild=self.getvar('ctx').guild)" vcc
+set  eval "discord.utils.get(self.getvar('bot').voice_clients,guild=self.getvar('message').guild)" vcc
 set  eval "True" true
 set  eval "False" false
 set  eval "None" none
@@ -16,7 +16,7 @@ set  eval "None" none
 if vcc != none
 set  eval "self.getvar('vcc').is_connected()" tf
 Eif
-set  eval "self.getvar('ctx').author.voice.channel" vc
+set  eval "self.getvar('message').author.voice.channel" vc
 if tf == false
 set vc connect  vcc
 Eif
