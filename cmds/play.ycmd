@@ -1,7 +1,7 @@
 set  eval "cmdarr[0]" yturl
 set yturl find "youtu" fyt
 if fyt == -1
-invoke  exec "self.var['cmdfile']=ClassData('cmds/searchplay')"
+invoke  exec "self.var['cmdfile']=ClassData('cmds/searchplay.ycmd')"
 invoke ycmd runcmd_file cmdfile
 Eif
 import discord.utils
