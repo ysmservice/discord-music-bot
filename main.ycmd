@@ -11,6 +11,7 @@ if iscmd == true
 set content replace "y!","" cmdt
 set cmdt split  cmdarr
 set cmdarr pop 0 cmd
-invoke ycmd runcmd_file cmd
+invoke  exec "self.var['cmdfile']=ClassData('cmds/'+self.getvar('cmd'))"
+invoke ycmd runcmd_file cmdfile
 Eif
 EMethod
