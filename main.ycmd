@@ -10,8 +10,9 @@ set content startswith "y!" iscmd
 if iscmd == true
 set content replace "y!","" cmdt
 set cmdt split  cmdarr
-set cmdarr pop 0 cmd
+set  eval "self.getvar('cmdarr')[0]" cmd
+invoke cmdarr pop 0
 invoke  exec "self.var['cmdfile']=ClassData('cmds/'+self.getvar('cmd')+'.ycmd')"
-invoke ycmd cmdrun_file cmdfile
+await invoke ycmd cmdrun_file cmdfile
 Eif
 EMethod
