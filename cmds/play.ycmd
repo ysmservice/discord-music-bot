@@ -1,3 +1,4 @@
+再生コマンド
 set  eval "True" true
 set  eval "False" false
 set  eval "None" none
