@@ -1,1 +1,30 @@
+set  eval "cmdarr[0]" yturl
+set yturl find "youtu" fyt
+if fyt == -1
 
+import discord.utils
+import youtube_dl
+import discord
+set  eval "youtube_dl" youtube_dl
+set  eval "discord.utils.get(self.getvar('bot').voice_clients,guild=self.getvar('ctx').guild)" vcc
+set  eval "True" true
+set  eval "False" false
+set  eval "None" none
+= tf false
+if vcc != none
+set  eval "self.getvar('vcc').is_connected()" tf
+Eif
+set  eval "self.getvar('ctx').author.voice.channel" vc
+if tf == false
+set vc connect  vcc
+Eif
+if tf == true
+invoke vcc move_to vc
+Eif
+set vcc is_playing  ipy
+if ipy == false
+set youtube_dl YoutubeDL {'format':'bestaudio','noplaylist':'True'} ydl
+set ydl extract_info yturl,false info
+set  eval "self.getvar('info')['url']" URL
+set  eval "discord.FFmpegPCMAudio(self.getvar('URL'))" fpa
+invoke vcc play fpa
