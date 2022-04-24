@@ -8,7 +8,7 @@ import discord.utils
 import youtube_dl
 import discord
 set  eval "youtube_dl" youtube_dl
-set  eval "discord.utils.get(self.getvar('bot').voice_clients,guild=self.getvar('message').guild)" vcc
+await set  eval "discord.utils.get(self.getvar('bot').voice_clients,guild=self.getvar('message').guild)" vcc
 set  eval "True" true
 set  eval "False" false
 set  eval "None" none
