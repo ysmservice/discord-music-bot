@@ -1,4 +1,3 @@
-再生コマンド
 set  eval "True" true
 set  eval "False" false
 set  eval "None" none
@@ -11,10 +10,14 @@ if fyt == nf
 invoke  exec "self.var['cmdfile']=ClassData('cmds/searchplay.ycmd')"
 await invoke ycmd cmdrun_file cmdfile
 Eif
-if fyt != nf
 import discord.utils
+import youtube_dl
 import discord
+set  eval "youtube_dl" youtube_dl
 set  eval "discord.utils.get(self.getvar('bot').voice_clients,guild=self.getvar('message').guild)" vcc
+set  eval "True" true
+set  eval "False" false
+set  eval "None" none
 = tf false
 if vcc != none
 set  eval "self.getvar('vcc').is_connected()" tf
@@ -33,5 +36,4 @@ set ydl extract_info yturl,false info
 set  eval "self.getvar('info')['url']" URL
 set  eval "discord.FFmpegPCMAudio(self.getvar('URL'))" fpa
 invoke vcc play fpa
-Eif
 set  eval "0" fyt
