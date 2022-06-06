@@ -57,4 +57,39 @@ invoke  exec "self.getvar('mtempdata')[self.getvar('gid')]['queue'].append(self.
 await invoke ctx send "queueに追加しました"
 Eif
 NMethod nextqueue
+set  eval "True" true
+set  eval "False" false
+set  eval "None" none
+import youtube_dl
+set  eval "youtube_dl" youtube_dl
+set  eval "self.getvar('ocmd').getvar('mtempdata').get(int(self.getvar('gid')))" egd
+set  eval "self.getvar('egd')['queue'].pop(0) yturl
+set yturl find "youtu" fyt
+set  eval "int(-1)" nf
+if fyt == nf
+invoke  exec "self.var['cmdfile']=ClassData('cmds/searchplay.ycmd')"
+await invoke ycmd cmdrun_file cmdfile
+Eif
+import discord.utils
+import youtube_dl
+import discord
+import cmds.bypass
+set  eval "youtube_dl" youtube_dl
+set  eval "cmds.bypass" bypass
+set  eval "discord.utils.get(self.getvar('bot').voice_clients,guild=discord.utils.get(self.getvar('bot').guilds,id=int(self.getvar('gid'))))" vcc
+set  eval "True" true
+set  eval "False" false
+set  eval "None" none
+set vcc is_playing  ipy
+if ipy == false
+set youtube_dl YoutubeDL {'format':'bestaudio','noplaylist':'True'} ydl
+set ydl extract_info yturl,false info
+set  eval "self.getvar('info')['url']" URL
+set  eval "discord.FFmpegPCMAudio(self.getvar('URL'))" fpa
+set  eval "'lambda'+self.getvar('space')+':cmds.bypass.nextqueue('+self.getvar('message').guild.id+self.getvar('conma')+'self')" nqt
+set  eval nqt nqtf
+set  eval "'self.getvar('vcc').play(self.getvar('fpa')'+self.getvar('conma')+'after='+self.getvar('nqt')+')'" pco
+invoke  eval pco
+set  eval "0" fyt
+Eif
 EMethod
