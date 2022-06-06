@@ -19,7 +19,7 @@ from discord import FFmpegPCMAudio
 from discord import TextChannel
 from youtube_dl import YoutubeDL
 
-
+cmd = CMD()
 client = commands.Bot(command_prefix='!')
 @client.event  # check if bot is ready
 async def on_ready():
@@ -28,7 +28,6 @@ async def on_ready():
     await cmd.cmdrun_method_file("main.ycmd","on_ready")
 @client.event
 async def on_message(message):
-    cmd = CMD()
     cmd.var["message"]=ClassData(message)
     cmd.var["bot"]=ClassData(client)
     await cmd.cmdrun_method_file("main.ycmd","on_message")
