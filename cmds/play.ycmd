@@ -31,6 +31,11 @@ if tf == true
 await invoke vcc move_to vc
 Eif
 set vcc is_playing  ipy
+if ipy == true
+invoke  exec "self.getvar('mtempdata')[self.getvar('gid')]['queue'].append(self.getvar('yturl'))"
+set  eval "self.getvar('message').channel" cch
+await invoke cch send "queueに追加しました"
+Eif
 if ipy == false
 set youtube_dl YoutubeDL {'format':'bestaudio','noplaylist':'True'} ydl
 set ydl extract_info yturl,false info
@@ -51,11 +56,6 @@ if egd == none
 set  dict  tdi
 invoke  exec "self.getvar('tdi')['queue']=list()"
 invoke  exec "self.getvar('mtempdata')[self.getvar('gid')]=self.getvar('tdi')"
-Eif
-if ipy == true
-invoke  exec "self.getvar('mtempdata')[self.getvar('gid')]['queue'].append(self.getvar('yturl'))"
-set  eval "self.getvar('message').channel" cch
-await invoke cch send "queueに追加しました"
 Eif
 NMethod nextqueue
 set  eval "True" true
