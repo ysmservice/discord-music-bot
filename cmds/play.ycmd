@@ -39,7 +39,7 @@ set  eval "self.getvar('info')['title']+'を再生します'" pt
 set  eval "discord.FFmpegPCMAudio(self.getvar('URL'))" fpa
 set  eval "'lambda'+self.getvar('space')+':nextqueue('+str(self.getvar('message').guild.id)+self.getvar('conma')+'self)'" nqt
 set  eval nqt nqtf
-set  eval "'self.getvar('vcc').play(self.getvar('fpa')'+self.getvar('conma')+'after='+self.getvar('nqt')+')'" pco
+set  eval "'self.getvar(\'vcc\').play(self.getvar(\'fpa\')'+self.getvar('conma')+'after='+self.getvar('nqt')+')'" pco
 invoke  eval pco
 await invoke ctx send pt
 set  eval "0" fyt
@@ -87,7 +87,7 @@ set  eval "self.getvar('info')['url']" URL
 set  eval "discord.FFmpegPCMAudio(self.getvar('URL'))" fpa
 set  eval "'lambda'+self.getvar('space')+':nextqueue('+str(self.getvar('message').guild.id)+self.getvar('conma')+'self)'" nqt
 set  eval nqt nqtf
-set  eval "'self.getvar('vcc').play(self.getvar('fpa')'+self.getvar('conma')+'after='+self.getvar('nqt')+')'" pco
+set  eval "'self.getvar(\'vcc\').play(self.getvar(\'fpa\')'+self.getvar('conma')+'after='+self.getvar('nqt')+')'" pco
 invoke  eval pco
 set  eval "0" fyt
 Eif
