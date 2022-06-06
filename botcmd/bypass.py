@@ -1,7 +1,7 @@
 import ycmd
 import asyncio
 class bypass(): 
-  def ply(self,gid,ocmd):
+  async def ply(self,gid,ocmd):
     loop = asyncio.get_event_loop()
     def nextqueue(e):
       ncmd = ycmd.ycmd.CMD()
