@@ -7,7 +7,7 @@ set  eval "self.getvar('cmdarr')[0]" yturl
 set yturl find "youtu" fyt
 set  eval "int(-1)" nf
 if fyt == nf
-invoke  exec "self.var['cmdfile']=ClassData('cmds/searchplay.ycmd')"
+invoke  exec "self.var['cmdfile']=ClassData('botcmd/searchplay.ycmd')"
 await invoke ycmd cmdrun_file cmdfile
 ifreturn true == true
 Eif
@@ -69,7 +69,7 @@ set  eval "self.getvar('egd')['queue'].pop(0) yturl
 set yturl find "youtu" fyt
 set  eval "int(-1)" nf
 if fyt == nf
-invoke  exec "self.var['cmdfile']=ClassData('cmds/searchplay.ycmd')"
+invoke  exec "self.var['cmdfile']=ClassData('botcmd/searchplay.ycmd')"
 await invoke ycmd cmdrun_file cmdfile
 Eif
 import discord.utils
