@@ -13,7 +13,7 @@ set content replace "y!","" cmdt
 set cmdt split  cmdarr
 set  eval "self.getvar('cmdarr')[0]" cmd
 invoke cmdarr pop 0
-invoke  exec "self.var['cmdfile']=ClassData('cmds/'+self.getvar('cmd')+'.ycmd')"
+invoke  exec "self.var['cmdfile']=ClassData('botcmd/'+self.getvar('cmd')+'.ycmd')"
 await invoke ycmd cmdrun_file cmdfile
 Eif
 EMethod
