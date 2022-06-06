@@ -1,5 +1,6 @@
 NMethod on_ready
 invoke  print "Logged_in"
+set  dict  mtempdata
 EMethod
 NMethod on_message
 set  eval "True" true
