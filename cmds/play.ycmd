@@ -34,6 +34,20 @@ if ipy == false
 set youtube_dl YoutubeDL {'format':'bestaudio','noplaylist':'True'} ydl
 set ydl extract_info yturl,false info
 set  eval "self.getvar('info')['url']" URL
+set  eval "self.getvar('info')['title']+'を再生します'" pt
 set  eval "discord.FFmpegPCMAudio(self.getvar('URL'))" fpa
 invoke vcc play fpa
+await invoke ctx send pt
 set  eval "0" fyt
+Eif
+set  eval "self.getvar('message').guild.id" gid
+set mtempdata get gid egd
+if egd == none
+set  dict  tdi
+invoke  exec "self.getvar('tdi')['queue']=list()"
+invoke  exec "self.getvar('mtempdata')[self.getvar('gid')]=self.getvar('tdi')"
+Eif
+if ipy == true
+invoke  exec "self.getvar('mtempdata')[self.getvar('gid')]['queue'].append(self.getvar('yturl'))"
+await invoke ctx send "queueに追加しました"
+Eif
