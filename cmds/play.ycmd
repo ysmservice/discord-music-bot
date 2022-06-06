@@ -13,7 +13,9 @@ Eif
 import discord.utils
 import youtube_dl
 import discord
+import cmds.bypass
 set  eval "youtube_dl" youtube_dl
+set  eval "cmds.bypass" bypass
 set  eval "discord.utils.get(self.getvar('bot').voice_clients,guild=self.getvar('message').guild)" vcc
 set  eval "True" true
 set  eval "False" false
@@ -36,7 +38,10 @@ set ydl extract_info yturl,false info
 set  eval "self.getvar('info')['url']" URL
 set  eval "self.getvar('info')['title']+'を再生します'" pt
 set  eval "discord.FFmpegPCMAudio(self.getvar('URL'))" fpa
-invoke vcc play fpa
+set  eval "'lambda'+self.getvar('space')+':cmds.bypass.nextqueue('+self.getvar('message').guild.id+self.getvar('conma')+'self')" nqt
+set  eval nqt nqtf
+set  eval "'self.getvar('vcc').play(self.getvar('fpa')'+self.getvar('conma')+'after='+self.getvar('nqt')+')'" pco
+invoke  eval pco
 await invoke ctx send pt
 set  eval "0" fyt
 Eif
@@ -51,3 +56,5 @@ if ipy == true
 invoke  exec "self.getvar('mtempdata')[self.getvar('gid')]['queue'].append(self.getvar('yturl'))"
 await invoke ctx send "queueに追加しました"
 Eif
+NMethod nextqueue
+EMethod
