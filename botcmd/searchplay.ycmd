@@ -3,5 +3,5 @@ set cmdt replace cmd,"" yts
 set  eval "'ytsearch:'+self.getvar('yts')" yts1
 set ydl extract_info yts1,false info
 invoke  exec "self.getvar('cmdarr')[0]=self.getvar('info')['entries'][0]['webpage_url']"
-invoke  exec "self.var['cmdfile']=ClassData('cmds/play.ycmd')"
+invoke  exec "self.var['cmdfile']=ClassData('botcmd/play.ycmd')"
 await invoke ycmd cmdrun_file cmdfile
