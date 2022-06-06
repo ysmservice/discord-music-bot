@@ -17,7 +17,8 @@ from discord import TextChannel
 from youtube_dl import YoutubeDL
 
 cmd = CMD()
-client = commands.Bot(command_prefix='!')
+intent=discord.Intents.all()
+client = commands.Bot(command_prefix='!',intents=intent)
 @client.event  # check if bot is ready
 async def on_ready():
     cmd.var["bot"]=ClassData(client)
