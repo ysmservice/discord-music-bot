@@ -23,7 +23,6 @@ cmd = CMD()
 client = commands.Bot(command_prefix='!')
 @client.event  # check if bot is ready
 async def on_ready():
-    cmd = CMD()
     cmd.var["bot"]=ClassData(client)
     await cmd.cmdrun_method_file("main.ycmd","on_ready")
 @client.event
