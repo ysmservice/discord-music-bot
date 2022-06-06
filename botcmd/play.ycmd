@@ -64,7 +64,7 @@ set  eval "None" none
 import youtube_dl
 set  eval "youtube_dl" youtube_dl
 set  eval "self.getvar('ocmd').getvar('mtempdata').get(int(self.getvar('gid')))" egd
-set  eval "self.getvar('egd')['queue'].pop(0) yturl
+set  eval "self.getvar('egd')['queue'].pop(0)" yturl
 set yturl find "youtu" fyt
 set  eval "int(-1)" nf
 if fyt == nf
