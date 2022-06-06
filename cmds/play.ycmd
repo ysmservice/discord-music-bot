@@ -15,7 +15,6 @@ import youtube_dl
 import discord
 import cmds.bypass
 set  eval "youtube_dl" youtube_dl
-set  eval "cmds.bypass" bypass
 set  eval "discord.utils.get(self.getvar('bot').voice_clients,guild=self.getvar('message').guild)" vcc
 set  eval "True" true
 set  eval "False" false
@@ -38,7 +37,7 @@ set ydl extract_info yturl,false info
 set  eval "self.getvar('info')['url']" URL
 set  eval "self.getvar('info')['title']+'を再生します'" pt
 set  eval "discord.FFmpegPCMAudio(self.getvar('URL'))" fpa
-set  eval "'lambda'+self.getvar('space')+':cmds.bypass.nextqueue('+self.getvar('message').guild.id+self.getvar('conma')+'self')" nqt
+set  eval "'lambda'+self.getvar('space')+':nextqueue('+self.getvar('message').guild.id+self.getvar('conma')+'self')" nqt
 set  eval nqt nqtf
 set  eval "'self.getvar('vcc').play(self.getvar('fpa')'+self.getvar('conma')+'after='+self.getvar('nqt')+')'" pco
 invoke  eval pco
@@ -86,7 +85,7 @@ set youtube_dl YoutubeDL {'format':'bestaudio','noplaylist':'True'} ydl
 set ydl extract_info yturl,false info
 set  eval "self.getvar('info')['url']" URL
 set  eval "discord.FFmpegPCMAudio(self.getvar('URL'))" fpa
-set  eval "'lambda'+self.getvar('space')+':cmds.bypass.nextqueue('+self.getvar('message').guild.id+self.getvar('conma')+'self')" nqt
+set  eval "'lambda'+self.getvar('space')+':nextqueue('+self.getvar('message').guild.id+self.getvar('conma')+'self')" nqt
 set  eval nqt nqtf
 set  eval "'self.getvar('vcc').play(self.getvar('fpa')'+self.getvar('conma')+'after='+self.getvar('nqt')+')'" pco
 invoke  eval pco
