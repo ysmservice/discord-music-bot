@@ -40,7 +40,7 @@ set  eval "self.getvar('info')['url']" URL
 set  eval "self.getvar('info')['title']+'を再生します'" pt
 set  eval "discord.FFmpegPCMAudio(self.getvar('URL'))" fpa
 set  eval "botcmd.bypass.bypass()" bypass
-invoke bypass ply gid,ycmd
+await invoke bypass ply gid,ycmd
 set  eval "self.getvar('message').channel" cch
 await invoke cch send pt
 set  eval "0" fyt
@@ -88,7 +88,7 @@ set ydl extract_info yturl,false info
 set  eval "self.getvar('info')['url']" URL
 set  eval "discord.FFmpegPCMAudio(self.getvar('URL'))" fpa
 set  eval "botcmd.bypass.bypass()" bypass
-invoke bypass ply gid,ycmd
+await invoke bypass ply gid,ycmd
 set  eval "0" fyt
 Eif
 EMethod
