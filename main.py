@@ -10,9 +10,6 @@ import json
 import datetime
 import random
 import time
-from hashids import Hashids
-# load our local env so we dont have the token in public
-from dotenv import load_dotenv
 from discord.ext import commands
 from discord.utils import get
 from discord import FFmpegPCMAudio
