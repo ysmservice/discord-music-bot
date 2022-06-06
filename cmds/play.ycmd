@@ -41,7 +41,8 @@ set  eval "'lambda'+self.getvar('space')+':nextqueue('+str(self.getvar('message'
 set  eval nqt nqtf
 set  eval "\"self.getvar('vcc').play(self.getvar('fpa')\"+self.getvar('conma')+'after='+self.getvar('nqt')+')'" pco
 invoke  eval pco
-await invoke ctx send pt
+set  eval "self.getvar('message').channel" cch
+await invoke cch send pt
 set  eval "0" fyt
 Eif
 set  eval "self.getvar('message').guild.id" gid
@@ -53,6 +54,7 @@ invoke  exec "self.getvar('mtempdata')[self.getvar('gid')]=self.getvar('tdi')"
 Eif
 if ipy == true
 invoke  exec "self.getvar('mtempdata')[self.getvar('gid')]['queue'].append(self.getvar('yturl'))"
+set  eval "self.getvar('message').channel" cch
 await invoke ctx send "queueに追加しました"
 Eif
 NMethod nextqueue
