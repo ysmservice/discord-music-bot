@@ -1,6 +1,6 @@
 import ycmd
 class bypass(): 
-  def ply(gid,ocmd):
+  def ply(self,gid,ocmd):
     //ループするときに使う
     def nextqueue(e):
       ncmd = ycmd.ycmd.CMD()
