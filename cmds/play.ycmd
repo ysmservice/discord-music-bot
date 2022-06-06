@@ -43,7 +43,7 @@ set ydl extract_info yturl,false info
 set  eval "self.getvar('info')['url']" URL
 set  eval "self.getvar('info')['title']+'を再生します'" pt
 set  eval "discord.FFmpegPCMAudio(self.getvar('URL'))" fpa
-set  eval "'lambda'+self.getvar('space')+\"e:[eval('import\"++self.getvar('space')+\"cmds.bypass')\"+self.getvar('conma')+\"cmds.bypass.nextqueue('+str(self.getvar('message').guild.id)+self.getvar('conma')+'self)]\"" nqt
+set  eval "'lambda'+self.getvar('space')+\"e:[eval('import\"+self.getvar('space')+\"cmds.bypass')\"+self.getvar('conma')+\"cmds.bypass.nextqueue('+str(self.getvar('message').guild.id)+self.getvar('conma')+'self)]\"" nqt
 set  eval nqt nqtf
 set  eval "\"self.getvar('vcc').play(self.getvar('fpa')\"+self.getvar('conma')+'after='+self.getvar('nqt')+')'" pco
 invoke  eval pco
@@ -88,7 +88,7 @@ set youtube_dl YoutubeDL {'format':'bestaudio','noplaylist':'True'} ydl
 set ydl extract_info yturl,false info
 set  eval "self.getvar('info')['url']" URL
 set  eval "discord.FFmpegPCMAudio(self.getvar('URL'))" fpa
-set  eval "'lambda'+self.getvar('space')+\"e:[eval('import\"++self.getvar('space')+\"cmds.bypass')\"+self.getvar('conma')+\"cmds.bypass.nextqueue('+str(self.getvar('message').guild.id)+self.getvar('conma')+'self)]\"" nqt
+set  eval "'lambda'+self.getvar('space')+\"e:[eval('import\"+self.getvar('space')+\"cmds.bypass')\"+self.getvar('conma')+\"cmds.bypass.nextqueue('+str(self.getvar('message').guild.id)+self.getvar('conma')+'self)]\"" nqt
 set  eval nqt nqtf
 set  eval "\"self.getvar('vcc').play(self.getvar('fpa')\"+self.getvar('conma')+'after='+self.getvar('nqt')+')'" pco
 invoke  eval pco
