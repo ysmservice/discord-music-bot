@@ -9,7 +9,7 @@ set  eval "int(-1)" nf
 if fyt == nf
 invoke  exec "self.var['cmdfile']=ClassData('cmds/searchplay.ycmd')"
 await invoke ycmd cmdrun_file cmdfile
-ifreturn fyt == nf
+ifreturn true == true
 Eif
 import discord.utils
 import youtube_dl
