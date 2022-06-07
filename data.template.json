@@ -1,0 +1,1 @@
+{"token":"botのtoken","mysql":{"host":"mysqlサーバーのアドレス","port":"mysqlサーバーのポート","user":"mysqlのユーザー名","pass":"接続用パスワード","db":"データベース名"}}
