@@ -1,5 +1,7 @@
 このファイルでコマンドのファイル内に定義されたdiscord.pyのイベントを呼び出す
 NMethod on_ready
+await invoke ycmd cmdrun_method_file "botcmd/afk.ycmd","on_ready"
 EMethod
 NMethod on_message
+await invoke ycmd cmdrun_method_file "botcmd/afk.ycmd","on_message"
 EMethod

@@ -1,0 +1,110 @@
+NMethod while_menchk
+import discord.utils
+await set  eval "self.getvar('message').channel.webhooks()" whs
+set  eval "discord.utils.get(self.getvar('whs'),name='ysmbot')" wh
+if wh == none
+await set  eval "self.getvar('message').channel.create_webhook(name='ysmbot')" wh
+Eif
+set  len cde ctcde
+set  str ctcde ctcde
+ifreturn ctcde == "0"
+set cde pop  maid
+set  eval "'select/*/from/afk/where/userid=\\''+str(self.getvar('maid').id)+'\\';'" sql
+set sql replace "/",space sql
+set sql replace "&",conma sql
+await invoke cur execute sql
+await set cur fetchall  aresult
+await invoke con commit 
+set  len aresult act
+set  str act act
+if act != "0"
+set  eval "self.getvar('aresult')[0][1]" vl
+set  eval "self.getvar('maid')" ausr
+await invoke  eval "self.getvar('wh').send(content=self.getvar('vl'),username=self.getvar('ausr').name+'-留守メッセージ',avatar_url=self.getvar('ausr').display_avatar.url)"
+await invoke ycmd cmdrun_method_file "botcmd/afk.ycmd","while_menchk"
+Eif
+EMethod
+NMethod on_message
+await set pool acquire  con
+await set con cursor  cur
+set  eval "'select/*/from/afk/where/userid=\\''+str(self.getvar('message').author.id)+'\\';'" sql
+set sql replace "/",space sql
+set sql replace "&",conma sql
+await invoke cur execute sql
+await set cur fetchall  result
+await invoke con commit 
+set  len result ct
+set  str ct ct
+if ct == "1"
+set  eval "'delete/from/afk/where/userid=\\''+str(self.getvar('message').author.id)+'\\'/limit/1;'" sql
+set sql replace "/",space sql
+set sql replace "&",conma sql
+await invoke cur execute sql
+await set  eval "self.getvar('message').channel.send('afkを解除しました',reference=self.getvar('message'))" cch
+Eif
+set  eval "'select/*/from/afk;'" sql
+set sql replace "/",space sql
+set sql replace "&",conma sql
+await invoke cur execute sql
+await set cur fetchall  afkresult
+set  len afkresult ct
+set  str ct ct
+if ct != "0"
+set  eval "'[row[0]/for/row/in/self.getvar(\\'afkresult\\')]'" alist
+set alist replace "/",space alist
+set  eval alist alist
+set  eval "'[mex/for/mex/in/self.getvar(\\'message\\').mentions]'" cde
+set cde replace "/",space cde
+set  eval cde cde
+await invoke ycmd cmdrun_method_file "botcmd/afk.ycmd","while_menchk"
+Eif
+EMethod
+NMethod set
+await set pool acquire  con
+await set con cursor  cur
+set  eval "'select/*/from/afk/where/userid=\\''+str(self.getvar('message').author.id)+'\\';'" sql
+set sql replace "/",space sql
+set sql replace "&",conma sql
+await invoke cur execute sql
+await set cur fetchall  result
+await invoke con commit 
+set  len result ct
+set  str ct ct
+if ct == "0"
+set  eval "'INSERT/INTO/afk(userid&/vl)/VALUES/(\\''+str(self.getvar('message').author.id)+'\\'&\"'+self.getvar('cmdarr')[1]+'\");'" sql
+set sql replace "/",space sql
+set sql replace "&",conma sql
+await invoke cur execute sql
+await invoke con commit 
+set  eval "self.getvar('message').channel" cch
+await invoke cch send "設定しました"
+Eif
+if ct == "1"
+set  eval "self.getvar('message').channel" cch
+await invoke cch send "すでに設定されています"
+Eif
+await invoke cur close 
+invoke con close 
+EMethod
+NMethod remove
+EMethod
+NMethod on_ready
+await set pool acquire  con
+await set con cursor  cur
+set  eval "'create/table/if/not/exists/afk/(userid/BIGINT&/vl/TEXT);'" sql
+set sql replace "/",space sql
+set sql replace "&",conma sql
+await invoke cur execute sql
+await invoke con commit 
+await invoke cur close 
+invoke con close 
+EMethod
+set  eval "self.getvar('cmdarr')[0]" mode
+if mode == "set"
+await invoke ycmd cmdrun_method_file "botcmd/afk.ycmd","set"
+ifreturn true == true
+Eif
+if mode == "remove"
+await invoke ycmd cmdrun_method_file "botcmd/afk.ycmd","remove"
+ifreturn true == true
+Eif
