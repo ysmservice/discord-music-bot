@@ -76,7 +76,7 @@ import youtube_dl
 import discord
 import botcmd.bypass
 set  eval "youtube_dl" youtube_dl
-set  eval "cmds.bypass" bypass
+set  eval "botcmd.bypass" bypass
 set  eval "discord.utils.get(self.getvar('bot').voice_clients,guild=discord.utils.get(self.getvar('bot').guilds,id=int(self.getvar('gid'))))" vcc
 set  eval "True" true
 set  eval "False" false

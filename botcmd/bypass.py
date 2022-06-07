@@ -7,7 +7,7 @@ class bypass():
     loop = asyncio.get_event_loop()
     def nextqueue(e):
       ncmd = ycmd.ycmd.CMD()
-      ncmd.var['ocmd'] = ocmd
-      ncmd.var['gid'] = gid
+      ncmd.var['ocmd'] = ycmd.ClassData.ClassData(ocmd)
+      ncmd.var['gid'] = ycmd.ClassData.ClassData(gid)
       asyncio.run_coroutine_threadsafe(cmf("botcmd/play.ycmd","nextqueue",ncmd),loop)
     ocmd.getvar('vcc').play(ocmd.getvar('fpa'),after=nextqueue)
