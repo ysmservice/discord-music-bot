@@ -1,0 +1,5 @@
+このファイルでコマンドのファイル内に定義されたdiscord.pyのイベントを呼び出す
+NMethod on_ready
+EMethod
+NMethod on_message
+EMethod
