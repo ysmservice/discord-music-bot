@@ -1,12 +1,14 @@
 NMethod on_ready
 invoke  print "Logged_in"
 set  dict  mtempdata
+await invoke ycmd cmdrun_method_file "botcmd/event.ycmd","on_ready"
 EMethod
 NMethod on_message
 set  eval "True" true
 set  eval "False" false
 set  eval "None" none
 set  eval "self.getvar('message').content" content
+await invoke ycmd cmdrun_method_file "botcmd/event.ycmd","on_message"
 set content startswith "y!" iscmd
 if iscmd == true
 set content replace "y!","" cmdt
